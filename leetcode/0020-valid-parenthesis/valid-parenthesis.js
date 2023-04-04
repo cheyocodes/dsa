@@ -81,8 +81,9 @@ ALGORITHM
 
 import { Stack } from "./stack.js"
 
+
 function isValidParenthesis(parensInput) {
-  if (parensInput.length < 2) {
+  if (parensInput.length < 2 || parensInput.length % 2 !== 0) {
     return false; 
   } 
 
@@ -113,7 +114,12 @@ function isValidParenthesis(parensInput) {
   return stack.isEmpty()
 }
 
+
+
 console.log(isValidParenthesis("(({{}}))")); // true 
 console.log(isValidParenthesis("()()()()")); // true 
 console.log(isValidParenthesis("[()([)]]")); // false
 console.log(isValidParenthesis("()[}")); // false  
+console.log(isValidParenthesis("(((((()))))")); // false  
+console.log(isValidParenthesis("(((((()))))]")); // false  
+console.log(isValidParenthesis("(((((()))))]]")); // false  
